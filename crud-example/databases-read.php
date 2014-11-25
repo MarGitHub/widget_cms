@@ -1,7 +1,7 @@
 <?php 
 	$dbhost = "localhost";
 	$dbuser = "widget_cms";
-	$dbpass = "secretpassword";
+	$dbpass = "tupsununnu123";
 	$dbname = "widget_corp";
 	$connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	if (mysqli_connect_errno()) {
