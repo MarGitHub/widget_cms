@@ -6,7 +6,7 @@
 	$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	$query = "SELECT * FROM subjects;"; 
 	$result = mysqli_query($connection, $query);
-	$row = mysqli_fetch_row($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +19,11 @@
   <body>
 	<?php
 	
- <article class="page">
-  <header class="page-header">
-    <h1 class="post-title">// Uudise pealkiri</h1>
-  </header>
-  <div class="page-body">
-    // Postituse sisu
-   </div>
-</article>
+	while ($row = mysqli_fetch_assoc($result)) {
+		echo '<h1 class="page-title">' . $row[1] . '</h1>';
+	}
+	mysqli_free_result($result);
+	
 ?>
   </body>
 </html>
