@@ -20,14 +20,14 @@
    </head>
   <body>
   	<pre>
-<?php
+
+	<?php while($row = mysqli_fetch_assoc($result)) { ?>
+		<h1 class="page-title"> <?php echo $row['menu_name']; ?> </h1>
+		<a href ="databases-update.php?id=<?php echo $row['id']; ?>">Muuda</a>
+		
+	<?php } ?>
+	<?php mysqli_free_result($result); ?>
 	
-	while ($row = mysqli_fetch_assoc($result)) {
-		echo '<h1 class="page-title">' . $row['menu_name'] . '</h1>';
-	}
-	mysqli_free_result($result);
-	
-?>
     </pre>
 
   </body>
