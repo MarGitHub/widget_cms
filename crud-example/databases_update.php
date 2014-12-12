@@ -1,12 +1,8 @@
 <?php 
-	$dbhost = "localhost";
-	$dbuser = "widget_cms";
-	$dbpass = "tupsununnu123";
-	$dbname = "widget_corp";
-	$connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-	if (mysqli_connect_errno()) {
-			die("Database connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ").");
-	}
+if (!isset($_GET['id'])) {
+	header('location:index.php');
+}
+require('components/config.php');
 $id = $_GET['id'];
 	if (isset($_POST['submit'])){
 	$menu_name = $_POST['menu_name'];

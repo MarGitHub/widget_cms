@@ -1,14 +1,33 @@
 <?php 
-	$dbhost = "localhost";
-	$dbuser = "widget_cms";
-	$dbpass = "tupsununnu123";
-	$dbname = "widget_corp";
-	$connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-	if (mysqli_connect_errno()) {
-			die("Database connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ").");
-	}
-	$query = "SELECT * FROM subjects";
+if (!isset($_GET['id'])) {
+	header('location:index.php');
+}
+require('components/config.php');
+$id = $_GET['id'];
+	if (isset($_POST['submit'])){
+	$menu_name = $_POST['menu_name'];
+	$position = $_POST['position'];
+	$visible = $_POST['visible'];
+	  $query = "UPDATE subjects SET
+            menu_name = '{$menu_name}',
+            position = {$position},
+            visible = {$visible}
+            WHERE id = {$id}";
 	$result = mysqli_query($connect, $query);
+	
+  if ($result) {
+    $answer = "Õnnestus";
+  } else {
+    $answer = "Ebaõnnestus";
+  }
+}else {
+	$query = "SELECT * FROM subjects WHERE id = $id";
+	$result = mysqli_query($connect, $query);
+	$row = mysqli_fetch_assoc($result);
+	$menu_name = $row['menu_name'];
+	$position = $row['position'];
+	$visible = $row['visible'];
+}
 ?>
 
 

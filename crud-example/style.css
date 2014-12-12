@@ -1,0 +1,13 @@
+body {background: url('colorful-triangles-background.jpg');
+ }
+
+a {
+text-decoration:none;
+color:#FFF;
+font-family: 'Arial'; }
+
+.page-title {
+font-family: 'Arial', sans-serif; 
+color: #FF7100;  
+
+}
